@@ -1,0 +1,12 @@
+node_modules
+dist
+__pycache__
+*.pyc
+server/assignments.db
+server/assignments.db-wal
+server/assignments.db-shm
+.env
+.env.local
+.venv
+venv
+.DS_Store
