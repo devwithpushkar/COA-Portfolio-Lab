@@ -13,6 +13,8 @@ import {
   AlertTriangle,
   BookOpen,
   Link2,
+  FileDown,
+  ExternalLink,
 } from 'lucide-react'
 import Reveal from '../../components/Reveal.jsx'
 import {
@@ -26,6 +28,7 @@ import {
 } from '../../services/assignments.js'
 
 const DIFFICULTIES = ['Easy', 'Medium', 'Hard']
+const ASSIGNMENT_DOC_URL = '/assignment-1.pdf'
 const DIFFICULTY_STYLES = {
   Easy: 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300',
   Medium: 'border-amber-glow/40 bg-amber-glow/10 text-amber-glow',
@@ -583,6 +586,66 @@ export default function Assignments() {
           {filtered.length} / {items.length} SHOWN · STORED IN {mode === 'server' ? 'SQLite (server)' : 'LOCAL BROWSER STORE'}
         </p>
       )}
+
+      {/* Assignment source document */}
+      <section className="mt-14" aria-labelledby="assignment-doc-heading">
+        <Reveal>
+          <div className="panel overflow-hidden">
+            <div className="flex flex-col items-start justify-between gap-3 border-b border-ink-700/70 bg-ink-850/60 px-6 py-4 sm:flex-row sm:items-center">
+              <div>
+                <p className="hex-label mb-1">SOURCE DOCUMENT</p>
+                <h3 id="assignment-doc-heading" className="text-sm font-semibold text-mist-100">
+                  Assignment 1 — Source Document
+                </h3>
+                <p className="mt-0.5 font-mono text-[0.65rem] text-mist-400">
+                  PUBLIC · /assignment-1.pdf
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href={ASSIGNMENT_DOC_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-4 py-2.5 text-sm text-mist-200 transition-colors hover:border-amber-glow/50 hover:text-amber-glow"
+                >
+                  <ExternalLink size={15} aria-hidden="true" />
+                  Open in new tab
+                </a>
+                <a
+                  href={ASSIGNMENT_DOC_URL}
+                  download
+                  className="inline-flex items-center gap-2 rounded-lg bg-amber-glow px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-amber-soft"
+                >
+                  <FileDown size={16} aria-hidden="true" />
+                  Download
+                </a>
+              </div>
+            </div>
+            <div className="h-[600px] bg-ink-900">
+              <object
+                data={ASSIGNMENT_DOC_URL}
+                type="application/pdf"
+                className="h-full w-full"
+                aria-label="Assignment 1 source document PDF preview"
+              >
+                <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
+                  <p className="text-sm text-mist-400">
+                    PDF preview is not available in this browser.
+                  </p>
+                  <a
+                    href={ASSIGNMENT_DOC_URL}
+                    download
+                    className="inline-flex items-center gap-2 rounded-lg border border-amber-glow/60 px-4 py-2 text-sm font-medium text-amber-glow hover:bg-amber-glow/10"
+                  >
+                    <FileDown size={15} aria-hidden="true" />
+                    Download the PDF instead
+                  </a>
+                </div>
+              </object>
+            </div>
+          </div>
+        </Reveal>
+      </section>
 
       {editing !== null && (
         <AssignmentForm
