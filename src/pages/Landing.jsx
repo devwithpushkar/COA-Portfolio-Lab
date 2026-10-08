@@ -96,6 +96,11 @@ export default function Landing() {
           </span>
         </h1>
 
+        <p className="mt-5 inline-flex items-baseline gap-2 rounded-full border border-amber-glow/30 bg-amber-glow/10 px-4 py-1.5 font-mono">
+          <span className="text-[0.7rem] uppercase tracking-[0.25em] text-mist-400">UID:</span>
+          <span className="text-sm font-semibold tracking-wider text-amber-glow">25BAI10034</span>
+        </p>
+
         <p className="mt-5 h-6 max-w-xl font-mono text-sm text-mist-400">
           {typed}
           <span className="caret ml-0.5 inline-block h-4 w-2 translate-y-0.5 bg-amber-glow" aria-hidden="true" />

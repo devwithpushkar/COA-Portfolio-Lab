@@ -29,6 +29,10 @@ export default function Home() {
           <h1 id="identity-heading" className="text-4xl font-bold tracking-tight text-mist-100 sm:text-5xl">
             {profile.name}
           </h1>
+          <p className="mt-4 inline-flex items-baseline gap-2 rounded-full border border-amber-glow/30 bg-amber-glow/10 px-4 py-1.5 font-mono">
+            <span className="text-[0.7rem] uppercase tracking-[0.25em] text-mist-400">UID:</span>
+            <span className="text-sm font-semibold tracking-wider text-amber-glow">25BAI10034</span>
+          </p>
           <p className="mt-3 text-lg text-amber-glow">{profile.degree}</p>
 
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist-200">
